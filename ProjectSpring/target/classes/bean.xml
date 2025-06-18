@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<!-- A bean can hold/represents one class -->
+	<bean id="myPerson" class="springCore.Core1.Person"></bean>
+	
+	<bean id="human" class="springCore.Core1.Human">
+		<!-- The process of injecting/inserting values to the class from xml is called Dependency Injection -->
+		<!-- Property name must be same as variable name of the corresponding class -->
+		<property name="name" value="Sylphie"></property>
+		<property name="email" value="sylphie17@gmail.com"></property>
+		<property name="number" value="6874598220"></property>
+	</bean>
+	
+	<!-- Injecting one object in another object -->
+	<bean id="sim" class="springCore.Core1.MSim">
+		<property name="name" value="VI"></property>
+		<property name="number" value="8425055892"></property>
+		<property name="network" value="5G"></property>
+	</bean>
+	<bean id="mobile" class="springCore.Core1.Mobile">
+		<property name="model" value="Samsung Galaxy S23"></property>
+		<property name="storage" value="12GB RAM, 128GB ROM"></property>
+		<property name="price" value="45000"></property>
+		<property name="sim" ref="sim"></property>
+	</bean>
+</beans>
