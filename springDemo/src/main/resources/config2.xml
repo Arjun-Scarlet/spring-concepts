@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    without autowiring-->
+    <bean id = "s1" class = "org.example.Student">
+        <constructor-arg name="name" value="akash"/>
+        <constructor-arg name="writer" ref="pencil"/>
+    </bean>
+
+    <!--    with autowiring-->
+    <bean id = "s2" class = "org.example.Student" autowire="constructor">
+        <constructor-arg name="name" value="akash"/>
+    </bean>
+
+    <bean id = "pen" class = "org.example.Pen"/>
+<!--    <bean id = "pencil" class = "org.example.Pencil"/>-->
+</beans>
